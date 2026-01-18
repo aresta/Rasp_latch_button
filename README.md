@@ -4,8 +4,10 @@
 
 ## The HUT:
 
-<img src="Docs/hut_render.jpg" width="45%">
+<p float="left">
+<img src="Docs/front1.jpeg" width="45%">
 <img src="Docs/Rasp_hut.jpeg" width="45%">
+</p>
 
 
 - USB C power connector. Use only this connector to power the Raspberry PI.
@@ -14,8 +16,10 @@
   - When the Raspberry Pi is on, a button press initiates the shutdown sequence, and when it completes cuts the power off. It's not necessary an additinal swich in the usb cable. After shutdown the power is completely off.
 - 5x2 socket to plug into the Raspberry Pi pins header.  It provides access to the GPIO2, GPIO3 and power pins. 
 
-<img src="Docs/front1.jpeg" width="45%">
+<p float="left">
+<img src="Docs/hut_render.jpg" width="45%">
 <img src="Docs/back1.jpeg" width="45%">
+</p>
 
 ---
 ## The circuit 
