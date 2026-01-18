@@ -2,7 +2,13 @@
 
 ### Mini HAT with a Push Button to **Power** the Raspberry Pi **On** and **Off** Safely, After the Shutdown Sequence Completes.
 
-Useful for home devices, like audio players or home theater systems, to avoid having to initiate the shutdown in the user interface, wait, and then cut off the power manually.
+- When the Raspberry Pi is **off**, a button press powers it on.
+- When the Raspberry Pi is **on**, a button press initiates the shutdown sequence, and when it completes, cuts the power off automatically.
+- An additional switch in the USB cable is not necessary; after the shutdown, the power is completely off.
+
+Useful for home devices, like audio players or home theater systems, to avoid having to initiate the shutdown in the user interface, wait some time, and then cut off the power manually. Just press and run.
+
+If you initiate the shutdown from the device user interface it works the same, after the shutdown sequence, it will cut the power.
 
 ## The Mini HAT:
 
@@ -12,12 +18,9 @@ Useful for home devices, like audio players or home theater systems, to avoid ha
 </p>
 
 
-- USB-C power connector. Use only this connector to power the Raspberry Pi.
-- Push button:
-  - When the Raspberry Pi is off, a button press powers it on.
-  - When the Raspberry Pi is on, a button press initiates the shutdown sequence, and when it completes, cuts the power off.
-  - An additional switch in the USB cable is not necessary; after the shutdown, the power is completely off.
-- 5x2 socket to plug into the Raspberry Pi header. It provides access to GPIO2, GPIO3, and power pins. 
+- **USB-C power connector**. Use only this connector to power the Raspberry Pi.
+- **Push button**. A push button of any size or type.
+- **5x2 socket** to plug into the Raspberry Pi header. It provides access to GPIO2, GPIO3, and power pins. 
 
 <p float="left">
 <img src="Docs/hut_render.jpg" width="45%">
@@ -48,15 +51,6 @@ You have to configure **GPIO 2 and 3** in the config.txt file. For power managem
 - Configuration: Add this line to your config file:    
     ``dtoverlay=gpio-poweroff,gpiopin=3,active_low=1``
 
-
- 
-### Config file Location
-Configure the behaviour of the GPIO pins in the Raspberry Pi config file:
-
-- Raspberry Pi OS Bookworm (and newer): The file is located at /boot/firmware/config.txt.
-- Older OS Versions (Bullseye and earlier): The file is located at /boot/config.txt.
-- On another computer: If you insert the SD card into a PC or Mac, the file is located in the root directory of the small partition named boot or bootfs.
-
 For example:
 
 ```bash
@@ -65,6 +59,14 @@ For example:
 dtoverlay=gpio-shutdown,gpio_pin=2,active_low=1,gpio_pull=up
 dtoverlay=gpio-poweroff,gpiopin=3,active_low=1
 ```
+
+ 
+### Config file Location
+Configure the behaviour of the GPIO pins in the Raspberry Pi config file:
+
+- Raspberry Pi OS Bookworm (and newer): The file is located at /boot/firmware/config.txt.
+- Older OS Versions (Bullseye and earlier): The file is located at /boot/config.txt.
+- On another computer: If you insert the SD card into a PC or Mac, the file is located in the root directory of the small partition named boot or bootfs.
 
 
 ## The circuit 
@@ -83,6 +85,7 @@ Basic power latch circuit combined with the ***shutdown*** and ***poweroff*** GP
 - The total current, including anything connected to the Raspeberry Pi, should not be more than 6A (about 30W), to be on the safe side. The absolute maximum rating of the main mosfet is 7.5A.
 - The HAT takes the first 10 pins of the header, to use two 5V and two GND pins, and also for stability.  It means that the pins of GPIO's 2,3,4,14,15 are not available in the header for other uses.
 - Conflict with I2C: Because Pin 5 (GPIO 3) is the only pin that can wake the Pi from a deep sleep, using it for a shutdown button will conflict with I2C devices.
+- There are no power or USB protections in the PCB. **Use at your own risk!**
 
 
 ## Compatibility with Raspberry Pi Versions
@@ -93,5 +96,7 @@ The overlays used for shutdown and power-off are supported on almost all models,
 - **Original Raspberry Pi 1**: Probably not compatible without modifications. On these specific early models, GPIO 1 is used for shutdown instead of the modern standard GPIO 3
 
 Anyway, I have only tested it with a Raspberry Pi 4b.
+
+## There are no power or USB protections in the PCB. **Use at your own risk!**
 
 
