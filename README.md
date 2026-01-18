@@ -1,12 +1,12 @@
 # Raspberry Pi Power Button HAT - Power On, Shutdown and Power off
 
-### Mini HAT with a Push Button to **Power** the Raspberry Pi **On** and **Off** Safely, After the Shutdown Sequence Completes.
+### Mini HAT with a Push Button to **Power** the Raspberry Pi **On** and **Off** Safely, After the Shutdown Completes.
 
 - When the Raspberry Pi is **off**, a button press powers it on.
 - When the Raspberry Pi is **on**, a button press initiates the shutdown sequence, and when it completes, cuts the power off automatically.
 - An additional switch in the USB cable is not necessary; after the shutdown, the power is completely off.
 
-Useful for home devices, like audio players or home theater systems, to avoid having to initiate the shutdown in the user interface, wait some time, and then cut off the power manually. Just press and run.
+Useful for home devices, like audio players or home theater systems, to avoid having to initiate the shutdown in the user interface, wait some time, and then cut off the power manually.
 
 If you initiate the shutdown from the device user interface it works the same, after the shutdown sequence, it will cut the power.
 
