@@ -83,7 +83,7 @@ Basic power latch circuit combined with the ***shutdown*** and ***poweroff*** GP
 
 
 ## Restrictions
-- The total current, including anything connected to the Raspeberry Pi, should not be more than 6A (about 30W), to be on the safe side. The absolute maximum rating of the main mosfet is 7.5A.
+- The maximum current that the board can handle is about 7A, but the maximum that you can get from this USB-C connector is 3A (15W).  It should be enough for most applications with few basic peripherals.
 - The HAT takes the first 10 pins of the header, to use two 5V and two GND pins, and also for stability.  It means that the pins of GPIO's 2,3,4,14,15 are not available in the header for other uses.
 - Conflict with I2C: Because Pin 5 (GPIO 3) is the only pin that can wake the Pi from a deep sleep, using it for a shutdown button will conflict with I2C devices.
 - There are no power or USB protections in the PCB. **Use at your own risk!**
